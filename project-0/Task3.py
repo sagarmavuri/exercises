@@ -47,22 +47,22 @@ The percentage should have 2 decimal digits
 
 # Part A
 mobile_phone_prefixes = ['7', '8', '9']
-misc_prefixes = []
 list_codes = set() # to remove duplicates.
-
-tem_list = []
-
-total_calls = len(calls)
 total_calls_from_to_bangalore = 0
+total_calls_from_bangalore = 0
+
 for call in calls:
 
     # call originated from Bangalore
     if call[0].find('(080)') == 0:
+        total_calls_from_bangalore += 1
         if call[1].find('140') == 0:
             list_codes.add('140')
         elif call[1].find('(080)') == 0:
-            list_codes.add('080')
+            list_codes.add('(080)')
             total_calls_from_to_bangalore += 1
+        elif call[1].find('(') == 0: # rest of the area codes with (*)
+            list_codes.add(call[1][:call[1].find(')') + 1])
         elif call[1][0] in mobile_phone_prefixes: # do we need this condition, all can go in 'else'?
             list_codes.add(call[1][:4]) # assuming first 4 digits are what needs to be stored
 
@@ -75,6 +75,6 @@ for code in sorted_list_codes:
 
 # Part B
 print(
-    f'{round((total_calls_from_to_bangalore / total_calls) * 100, 2)} '
+    f'{round((total_calls_from_to_bangalore / total_calls_from_bangalore) * 100, 2)} '
     'percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.'
 )

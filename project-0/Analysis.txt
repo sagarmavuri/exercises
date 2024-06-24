@@ -1,7 +1,16 @@
 Run time analysis - 
 
 * Task0: O(1)
+  * All the operations here are about accessing the array elements and one is to find the length of the array. Both the operations take O(1) as run time complexity.
 * Task1: O(n)
+  * There are two for loops, and the inside statments takes O(1) - for access. The loops, however takes O(n)
 * Task2: O(n)
+  * There's one for loop that runs through the length of the array. Inside statments have static complexity. Hence, O(n).
 * Task3: O(nlogn)
+  * There's one for loop that gets us the result, inside statements have static time complexity. And the loop runs through all the array elemtns. Hence, O(n).
+  * The sorted() method takes O(nlogn) to compute. 
+  * So, the worst time complexity - O(nlogn)
 * Task4: O(nlogn)
+  * Again, the loop traverses through all the array elements, hence O(n).
+  * But the sorted() method takes O(nlogn) complexity.
+  * So, the worst time complexity - O(nlogn)
